@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home - Amazing Events</title>
+    
+    <link
+      rel="shortcut icon"
+      href="/sources/faviconmazingevents.png"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/styles/style.css">
+  </head>
+  <body>
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg bg-light d-flex gap-5 align-items-center justify-content-evenly">
+        <div class="container-fluid m-3">
+          <div class="container">
+            <a class="navbar-brand" href="#">
+              <img
+                src="/sources/Logo_Amazing_Events.png"
+                alt="Bootstrap"
+                width="200"
+                height="24"
+              />
+            </a>
+          </div>
+          <div
+            class="collapse navbar-collapse d-flex justify-content-end pe-5"
+            id="navbarNav"
+          >
+            <ul class="navbar-nav me-5 pe-5">
+              <li class="nav-item">
+                <a class="nav-link active me-5" aria-current="page" href="/index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-5" href="/pages/upcoming.html">Upcoming Events</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link me-5" href="/pages/pastevents.html">Past Events</a>
+              </li>
+              <li class="nav-item me-5">
+                <a class="nav-link" href="/pages/contact.html">Contact</a>
+              </li>
+              <li class="nav-item me-5">
+                <a class="nav-link" href="/pages/stats.html">Stats</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <!-- Navbar end  -->
+      <header>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+              <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner">
+              <div class="carousel-item active" data-bs-interval="10000">
+                <img src="/sources/banner1920.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="H1_Carrousel">Home</h1>
+                </div>
+              </div>
+              <div class="carousel-item" data-bs-interval="2000">
+                <img src="/sources/banner1920_2.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="H1_Carrousel">Home</h1>
+                </div>
+              </div>
+              <div class="carousel-item">
+                <img src="/sources/banner1920_3.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                  <h1 class="H1_Carrousel">Home</h1>
+                </div>
+              </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+      </header>
+    <main>
+      <form class="ps-5 pt-3 d-flex gap-3 flex-wrap">
+        <label class="pt-1">
+          <input type="checkbox" name="Category" value="Category" /> Category
+        </label>
+        <label class="pt-1">
+          <input type="checkbox" name="Category" value="Category" /> Category
+        </label>
+        <label class="pt-1">
+          <input type="checkbox" name="Category" value="Category" /> Category
+        </label>
+        <label class="pt-1">
+          <input type="checkbox" name="Category" value="Category" /> Category
+        </label>
+        <label class="pt-1">
+          <input type="checkbox" name="Category" value="Category" /> Category
+        </label>
+        <form class="">
+          <input
+            class="me-2 form-control w-50"
+            type="search"
+            aria-label="Search"
+          />
+          <button class="btn border border-secondary p-0" type="button">
+            <img
+              src="/sources/iconobusqueda.jpg"
+              height="100%"
+              width="40"
+              class="rounded"
+            />
+          </button>
+        </form>
+      </form>
+      <!-- Start cards script -->
+      <!-- End cards script -->
+      <div id="containerCards" class="d-flex flex-wrap gap-4 justify-content-center pt-4 pb-4">
+        <!-- <article class="card" style="width: 25rem">
+          <img
+            src="/sources/Cine7.jpg"
+            class="card-img-top p-2"
+            alt="Cinema"
+            height="60%"
+          />
+          <h5 class="card-title text-center">Cinema</h5>
+          <p class="card-text text-center">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <div class="d-flex justify-content-evenly">
+            <p>Precio US$</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </article>
+        <article class="card" style="width: 25rem">
+          <img
+            src="/sources/Fiesta_de_disfraces1.jpg"
+            class="card-img-top p-2"
+            alt="Party"
+            height="60%"
+          />
+          <h5 class="card-title text-center">Party</h5>
+          <p class="card-text text-center">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
+          <div class="d-flex justify-content-evenly">
+            <p>Precio US$</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </article>
+        <article class="card" style="width: 25rem">
+          <img
+            src="/sources/Salida_al_museo5.jpg"
+            class="card-img-top p-2"
+            alt="Museum"
+            height="60%"
+          />
+          <h5 class="card-title text-center">Cinema</h5>
+          <p class="card-text text-center">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content..
+          </p>
+          <div class="d-flex justify-content-evenly">
+            <p>Precio US$</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </article>
+        <article class="card" style="width: 25rem">
+          <img
+            src="/sources/Feria_de_comidas7.jpg"
+            class="card-img-top p-2"
+            alt="Footer"
+            height="60%"
+          />
+          <h5 class="card-title text-center">Food fair</h5>
+          <p class="card-text text-center">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content..
+          </p>
+          <div class="d-flex justify-content-evenly">
+            <p>Precio US$</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </article>
+        <article class="card" style="width: 25rem">
+          <img
+            src="/sources/Concierto_de_musica1.jpg"
+            class="card-img-top p-2"
+            alt="Music"
+            height="60%"
+          />
+          <h5 class="card-title text-center">Music concert</h5>
+          <p class="card-text text-center">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content..
+          </p>
+          <div class="d-flex justify-content-evenly">
+            <p>Precio US$</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </article>
+        <article class="card" style="width: 25rem">
+          <img
+            src="/sources/Maraton3.jpg"
+            class="card-img-top p-2"
+            alt="Marathon"
+            height="60%"
+          />
+          <h5 class="card-title text-center">Marathon</h5>
+          <p class="card-text text-center">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content..
+          </p>
+          <div class="d-flex justify-content-evenly">
+            <p>Precio US$</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </article> -->
+      </div>
+    </main>
+<!-- Footer start -->
+<footer class="p-1">
+    <div class="d-flex justify-content-between">
+      <figure class="d-flex align-items-center gap-3 pt-2 ps-5">
+        <img
+          src="/sources/logowhats.png"
+          alt="Whatsapp"
+          width="30"
+          height="30"
+        />
+        <img
+          src="/sources/logoinsta.png"
+          alt="Instagram"
+          width="30"
+          height="30"
+        />
+        <img
+          src="/sources/logofacebook.png"
+          alt="Facebook"
+          width="30"
+          height="30"
+        />
+      </figure>
+      <h2 class="d-flex pe-5 text-white align-items-center">Cohort</h2>
+    </div>
+  </footer>
+<!-- Footer end -->
+    <script src="/scripts/data.js"></script>
+    <script src="/scripts/app.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
