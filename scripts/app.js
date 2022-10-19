@@ -1,64 +1,3 @@
-console.log(data);
-
-// let contenedorHTML = document.getElementById('containerCards')
-// let search = document.getElementById('searchBar')
-
-// let categoryChecks = document.querySelectorAll('input[type=checkbox][name=category]')
-// let filterLitsCategory = new Array(categoryChecks.length);
-
-// categoryChecks.forEach(function(checkbox) {
-
-//   checkbox.addEventListener("change", function(index){
-//     if (this.checked) {
-//       filterLitsCategory.push(this.value);
-//     } else {
-//       filterLitsCategory.slice(this.value);
-//     }
-//   })
-
-// })
-
-// TODO
-// generar funcion para el filtrado
-// llamar a funcion de filtrado desde el listener
-// agregar un filtro (u otra lista para filtro de input) para la busqueda por inputbox
-// si es necesario que esten los datos cargados al inicio, llamar a la funcion al cargar
-
-// console.log(filterLitsCategory);
-// const printcard = data.events
-// .filter(d => {
-//   filterLitsCategory.includes(d.category)
-// })
-// .filter({
-//   // filtro por input
-// })
-// .map(event =>([ contenedorHTML.innerHTML +=
-//     `
-//     <article class="card" style="width: 25rem">
-//     <img
-//       src="${event.image}"
-//       class="card-img-top p-2"
-//       alt="${event.name}"
-//       height="60%"
-//     />
-//     <h5 class="card-title text-center">${event.name}</h5>
-//     <p class="card-text text-center">${event.description}
-//     </p>
-//     <div class="d-flex justify-content-evenly">
-//       <p>Precio US$${event.price}</p>
-//       <a href="#" class="btn btn-primary">Go somewhere</a>
-//     </div>
-//   </article>
-//     `
-// ]))
-
-// search.addEventListener('keyup',e =>{
-
-//   let inputSearch = (e.target.value.toLowerCase())//toma el valor de la tecla escrita.
-//   let filterInput = events.filter(event => event.name.toLowerCase().includes(inputSearch.toLowerCase()))
-//   cardsFilters.innerHTML
-
-// })
 let containerCards = document.getElementById("containerCards");
 
 function printCard(array, container) {
@@ -75,7 +14,7 @@ function printCard(array, container) {
             <p class="card-text text-center">${evento.description}</p>
             <div class="d-flex justify-content-evenly">
               <p>Precio US$ ${evento.price}</p>
-              <a href="/pages/details.html?id=${evento._id}" class="btn btn-primary">Go somewhere</a>
+              <a href="../pages/details.html?id=${evento._id}" class="btn btn-primary">Go somewhere</a>
             </div>
           </article>
           `;
