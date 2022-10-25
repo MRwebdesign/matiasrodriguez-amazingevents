@@ -1,84 +1,93 @@
 let containerCards = document.getElementById("containerCards");
+let search = document.getElementById("inputSearch");
+let categorias = document.getElementById("boxes");
+// let favoritos= [] 
 
-function printCard(array, container) {
-  array.forEach((evento) => {
-    container.innerHTML += `
-    <article class="card" style="width: 25rem">
-            <img
-              src=${evento.image}
-              class="card-img-top p-2"
-              alt=${evento.name}
-              height="60%"
-            />
-            <h5 class="card-title text-center">${evento.name}</h5>
-            <p class="card-text text-center">${evento.description}</p>
-            <div class="d-flex justify-content-evenly">
-              <p>Precio US$ ${evento.price}</p>
-              <a href="../pages/details.html?id=${evento._id}" class="btn btn-primary">Go somewhere</a>
+
+let eventos;
+fetch('https://mh-amazing.herokuapp.com/amazing')
+  .then( data => data.json())
+  .then( res => {
+    eventos = res //aca me falta algo que hace en el filtro (no lo supe usar pero funciona igual)
+    crearCheckbox(eventos.events, boxes)
+    imprimirCard(eventos.events, containerCards)
+    search.addEventListener('keyup',filtrar)
+    categorias.addEventListener('change',filtrar)
+  })
+  .catch(err => console.log(err))
+
+
+
+//crear checkbox
+
+function crearCheckbox (categorias, contenedor){
+  let fn = categorias => categorias.category
+  let category = new Set(categorias.filter(fn).map(fn))
+  category.forEach(categoria =>{
+    contenedor.innerHTML += `
+    
+     <label class="d-inline-flex  p-1" for="${categoria}">
+     <input class="me-2" type="checkbox" id="${categoria}" value="${categoria}"> ${categoria}
+     </label>
+
+    `
+  })
+}
+
+function crearCard(evento){
+  let name = evento.name.replace(' ','')
+  let div = document.createElement('div')
+  div.classList = 'col-3'
+  div.innerHTML = `
+  <article class="card" style="width: 25rem">
+             <img
+               src=${evento.image}
+               class="card-img-top p-2"
+               alt=${evento.name}
+               height="60%"
+             />
+             <h5 class="card-title text-center">${evento.name}</h5>
+             <h5 class="card-title text-center">${evento.category}</h5>
+             <div class="d-flex justify-content-evenly">
+               <p>Precio US$${evento.price}</p>
+              <a href="../pages/details.html?id=${evento.id}" class="btn btn-primary">More details</a>
+              <button class="btn btn-primary id="btn-${name}" onclick="handleFavs('${name}')"> agregar fav </>
             </div>
           </article>
-          `;
-  });
+  `
+  return div
 }
-printCard(data.events, containerCards);
 
-//codigo checkbox
+//Imprimir Cards
 
-let categorias = document.getElementById("boxes");
+function imprimirCard(eventos, contenedor){
+  contenedor.innerHTML = ''
+    let fragment = document.createDocumentFragment()
+    eventos.forEach(evento => fragment.appendChild(crearCard(evento)))
+    contenedor.appendChild(fragment)
+}
 
-let checkbox = new Set(data.events.map((evento) => evento.category));
 
-checkbox = [...checkbox];
+// Funcion para filtrar 
+function filtrar(){
+  let checked = [...document.querySelectorAll('input[type="checkbox"]:checked')].map(e => e.value)
+  let filtradoPorCategoria = eventos.events.filter(evento => checked.includes(evento.category) || checked.length === 0)
+  let filtradoPorSearch = filtradoPorCategoria.filter(evento => evento.name.toLowerCase().includes(search.value.toLowerCase()))
+  imprimirCard(filtradoPorSearch, containerCards) 
+}
 
-checkbox.forEach((nombreCategoria) => {
-  categorias.innerHTML += `
-    <div class="form-check">
-        <input class="form-check-input" id="${nombreCategoria}" type="checkbox">
-        <label class="form-check-label" for="${nombreCategoria}">${nombreCategoria}</label>
-    </div>
-    `;
-});
 
-let listCheck = [];
+// Agregar a Fav 
 
-categorias.addEventListener(`click`, (e) => {
-  if (e.target.checked) {
-    listCheck = listCheck.concat(
-      data.events.filter((evento) =>
-        evento.category.toLowerCase().includes(e.target.id.toLowerCase())
-      )
-    );
-    containerCards.innerHTML = "";
-    printCard(listCheck, containerCards);
-  } else if (!e.target.checked) {
-    listCheck = listCheck.filter(
-      (evento) =>
-        !evento.category.toLowerCase().includes(e.target.id.toLowerCase())
-    );
-    containerCards.innerHTML = "";
-    printCard(listCheck, containerCards);
-  }
-  if (listCheck.length === 0) {
-    printCard(data.events, containerCards);
-  }
-});
-
-//entrada texto input
-
-let search = document.getElementById("inputSearch");
-search.addEventListener("keyup", (cambiosDelEvento) => {
-  let inputUser = cambiosDelEvento.target.value;
-  let filtro = [];
-  if (listCheck.length !== 0) {
-    filtro = listCheck.filter((objetoEvento) =>
-      objetoEvento.name.toLowerCase().includes(inputUser.toLowerCase())
-    );
-  }else{
-    filtro = data.events.filter((objetoEvento) =>
-    objetoEvento.name.toLowerCase().includes(inputUser.toLowerCase())
-  )}
-  containerCards.innerHTML = "";
-  printCard(filtro, containerCards);
-});
-
+// function handleFavs(name){
+//   if(favoritos.includes(name)){
+//     //si esta (Tenemos que sacarlo de fav)
+//     favoritos = favoritos.filter( evento => evento !== name )
+//     console.log(favoritos);
+//   }else{
+//     //si no esta (tenemos que agregarlo fav)
+//     favoritos = favoritos.push(name)
+//     console.log(favoritos);
+//   }
+// }
 

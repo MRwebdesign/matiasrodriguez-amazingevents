@@ -2,19 +2,31 @@ let eventId=new URL(window.location.href).searchParams.get('id') //query param, 
 //window location y lo convertimos a una url para que sea interpretada por js y con "searchParam" obtiene todo los parametros
 //que traiga despues del signo de interrogación (son parametros)
 let detailView = document.getElementById('viewDetail')
+let eventos
 
-let eventDetail = data.events.filter(object =>
-    object._id == eventId
-)
+fetch('https://mh-amazing.herokuapp.com/amazing')
+   .then( data => data.json())
+   .then( res => {
+     eventos = res.events
+     filtro(eventos)
+   })
+   .catch(err => console.log(err))
 
-let evento = eventDetail[0]
+
+function filtro(eventos){
+let eventDetail = eventos.find(object => object.id == eventId)
+impresionDetail(eventDetail)
+}
+
+
+function impresionDetail(evento){
 detailView.innerHTML =
 `
     <article class="card cardDetails mx-5" style="width: 55rem">
             <img
-              src=${evento.image}
+              src="${evento.image}"
               class="card-img-top p-2"
-              alt=${evento.name}
+              alt="${evento.name}"
               height="85%"
             />
             <h5 class="card-title text-center">${evento.name}</h5>
@@ -27,3 +39,4 @@ detailView.innerHTML =
             </div>
           </article>
           `;
+        }

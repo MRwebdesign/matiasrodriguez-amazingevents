@@ -43,13 +43,13 @@
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link me-5" href="./pages/upcoming.html">Upcoming Events</a>
+                <a class="nav-link me-5" href="/pages/upcoming.html">Upcoming Events</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link me-5" href="./pages/pastevents.html">Past Events</a>
+                <a class="nav-link me-5" href="/pages/pastevents.html">Past Events</a>
               </li>
               <li class="nav-item me-5">
-                <a class="nav-link" href="./pages/contact.html">Contact</a>
+                <a class="nav-link" href="/pages/contact.html">Contact</a>
               </li>
               <li class="nav-item me-5">
                 <a class="nav-link active" href="#">Stats</a>
@@ -105,11 +105,8 @@
             <td>Events with the lowrest percentage of attendance</td>
             <td>Event with larger capacity</td>
           </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
+          <tbody id="tableNumber1"></tbody>
+          <table class="table table-hover">
           <tr class="table-info">
             <th colspan="4" class="text-center Color_Style_Title">Upcoming events statistics by category</th>
           </tr>
@@ -118,21 +115,9 @@
             <td>Revenues</td>
             <td>Percentage of attendance</td>
           </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
+          <tbody id="tableNumber2"></tbody>
+        </table>
+        <table class="table table-hover">          
           <tr class="table-info">
             <th colspan="4" class="text-center Color_Style_Title">Past Events statistics by category</th>
           </tr>
@@ -141,22 +126,8 @@
             <td>Revenues</td>
             <td>Percentage of attendance</td>
           </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
-          <tr>
-            <td style="height: 2.5rem"></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </table>
+          <tbody class="" id="tableNumber3"></tbody>
+        </table>         
       </main>
     </main>
 <!-- Footer start -->
@@ -186,7 +157,7 @@
     </div>
   </footer>
 <!-- Footer end -->
-
+    <script src="../scripts/stats.js"></script>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8"
